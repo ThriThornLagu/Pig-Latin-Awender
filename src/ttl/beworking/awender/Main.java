@@ -20,10 +20,15 @@ public class Main {
             	
             	String anwardWord = words.get(t);
             	
-            	//For the /two/ cases of a one-staff word coming after a word end marker (see Staff.isWordEndMark for more knowledge)
-            	if (Staff.isWordEndMark(anwardWord.charAt(anwardWord.length() - 1)) && anwardWord.length() == 1) {
+            	//For the /two/ cases of a one-staff word coming after a word end marker (see Staff.isWordEndMark for more knowledge),
+            	//and Awend.toPigLatin for rakes on why this is built like this.
+            	boolean isBoutingToWield = !(t == 0) && Staff.isWordEndMark(words.get(t - 1).charAt(0)) && 
+            			anwardWord.length() == 1 && !Staff.isMarker(anwardWord.charAt(0)) && !Character.isWhitespace(anwardWord.charAt(0));
+				
+            	if (isBoutingToWield) {
             		StringBuilder nw = new StringBuilder(anwardWord);
             		nw.append("ay");
+            		words.set(t, nw.toString());
             	} else words.set(t, Awend.toPigLatin(anwardWord));
             }
 

@@ -9,23 +9,8 @@ public class Staff {
 				!Character.isDigit(in)) ? true : false;
 	}
 	
-	public static boolean isEnderMark(char in) {
-		return (in == '>' || in == ')' || in == ']' || 
-				in == ',' || Staff.isWordEndMark(in) ||
-				in == ';' || in == ':') ? true : false;
-	}
-	
 	public static boolean isWordEndMark(char in) {
 		return (in == '.' || in == '!' || in == '?') ? true : false;
-	}
-	
-	public static boolean isStarterMark(char in) {
-		return (in == '<' || in == '(' || in == '[' || 
-				in == '/' || in == '\\') ? true : false;
-	}
-	
-	public static boolean isSoothingMark(char in) {
-		return (in == '\"') ? true : false;
 	}
 	
 }

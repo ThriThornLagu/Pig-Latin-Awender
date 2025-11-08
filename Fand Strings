@@ -8,10 +8,16 @@ Fanding: "ABCDEF" GHIJKLM
 Bidden Outcome: "BCDEFAAY" HIJKLMGAY
 
 Fanding: A! B@ C# D$ E% F^ G& H* I( J) K- L= M[ N] O; P' Q\ R/ S. T, U V WXYz
-Bidden Outcome: aay! bay @ cay # day $ eay % fay ^ gay & hay * iay (jay) kay - lay = may [nay] oay; pay ' qay \ray /say. tay, uay vay XYZWAY
+Bidden Outcome: aay! bay@ cay# day$ eay% fay^ gay& hay* iay( jay) kay- lay= may[ nay] oay; 'pay qay\ ray/ say. tay, uay vay XYZWAY
 
 Fanding: !@#$%^&*()_+{}:"|<>?-=[];'\,./
-Bidden Outcome: ! @ # $ % ^ & * () _ + { }: " | <>? - = []; ' \,. /
+Bidden Outcome: !@#$%^&*()_+{}:"|<>?-=[];'\,./ 
 
 Fanding: ABCDEFGHIJKLMNOPQRSTUVWXYZ
 Bidden Outcome: BCDEFGHIJKLMNOPQRSTUVWXYZAAY
+
+Fanding: don't
+Bidden Outcome: on'tday
+
+Fanding: ...I said don't go that a way.
+Bidden Outcome: ...Iay aidsay on'tday ogay hattay aay ayway.

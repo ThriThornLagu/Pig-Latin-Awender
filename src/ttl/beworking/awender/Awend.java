@@ -4,11 +4,11 @@ public class Awend {
 
 	public static String toPigLatin(String word) {
 
-		//Break the wise if this word is a marker
-        if (Staff.isMarker(word.charAt(0))) return word;
+		//Break the wise if this word is a marker or whiteyin
+        if (Staff.isMarker(word.charAt(0)) || Character.isWhitespace(word.charAt(0))) return word;
 
         StringBuilder builder = new StringBuilder();
-
+        
         char[] string = word.toCharArray();
         char firstStaff = string[0];
         
@@ -17,7 +17,7 @@ public class Awend {
         if (string.length >= 2) {
 	        if (Character.isUpperCase(string[0]) && Character.isUpperCase(string[1])) allHigh = true;
 	        else allHigh = false;
-        } else { //It's alright if something like 'iay' happens
+        } else { //It's alright if something like 'iay' happens (but for the cases thate in Main)
         	allHigh = false;
         }
         
@@ -41,7 +41,8 @@ public class Awend {
 				  if not for the sooth that everything has been shifted up 1.*/
 	            if (t == string.length - 1) {
 	            	if (allHigh) builder.append(firstStaff);
-	            	else builder.append(Character.toLowerCase(firstStaff)); //Character.toLowerCase is called for the case where allHigh == false, but the first staff was UpperCase
+	            	//Character.toLowerCase is called for the case where allHigh == false, but the first staff was UpperCase
+	            	else builder.append(Character.toLowerCase(firstStaff)); 
 	            }
 	        }
 	
