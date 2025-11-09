@@ -14,12 +14,14 @@ public class BreakThwear {
             if (!Character.isWhitespace(anwardStaff) && Character.isAlphabetic(anwardStaff)) {
                 word.append(anwardStaff);
             } else if (Staff.isMarker(anwardStaff)) {
-            	if (anwardStaff == '\'') {
+            	//Fangs any othwharving as it onies before the end of the string and keeps feeding it to the last word.
+            	//If the othwharving is at the end of the string, then we keep it otherly from what comes before.
+            	if (anwardStaff == '\'' && t != fullLine.length() - 1) {
             		word.append(anwardStaff);
             		continue;
             	}
             	
-            	//Eke the word before this, unless the "word" is whiteyin.
+            	//Eke the word before this, unless the "word" is empty.
             	if (!word.isEmpty()) brokenWords.add(word.toString());
             	
             	word = new StringBuilder(); //Make a new StringBuilder so the marker can be written otherly.
@@ -40,7 +42,7 @@ public class BreakThwear {
 
         return brokenWords;
     }
-
+	
     public static String toLine(ArrayList<String> input) {
         StringBuilder builder = new StringBuilder();
                

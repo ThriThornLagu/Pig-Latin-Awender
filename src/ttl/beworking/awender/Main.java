@@ -10,7 +10,7 @@ public class Main {
 		
         try (Scanner reader = new Scanner(System.in)) {
 
-            String input = reader.nextLine() + " ";
+            String input = reader.nextLine();
 
             ArrayList<String> words = BreakThwear.toStringTrum(input);
             
@@ -22,8 +22,8 @@ public class Main {
             	
             	//For the /two/ cases of a one-staff word coming after a word end marker (see Staff.isWordEndMark for more knowledge),
             	//and Awend.toPigLatin for rakes on why this is built like this.
-            	boolean isBoutingToWield = !(t == 0) && Staff.isWordEndMark(words.get(t - 1).charAt(0)) && 
-            			anwardWord.length() == 1 && !Staff.isMarker(anwardWord.charAt(0)) && !Character.isWhitespace(anwardWord.charAt(0));
+            	boolean isOneStaffWord = anwardWord.length() == 1 && !Staff.isMarker(anwardWord.charAt(0)) && !Character.isWhitespace(anwardWord.charAt(0));
+            	boolean isBoutingToWield = (!(t == 0) && Staff.isWordEndMark(words.get(t - 1).charAt(0)) && isOneStaffWord) || (t == 0 && isOneStaffWord);
 				
             	if (isBoutingToWield) {
             		StringBuilder nw = new StringBuilder(anwardWord);
