@@ -15,8 +15,8 @@ public class Awend {
         StringBuilder builder = new StringBuilder();
         
         char[] string = word.toCharArray();
-        
         string = bareOthwharvings(string);
+        firstStaff = string[0];
         
         if (string.length >= 2) {
 	        if (Character.isUpperCase(string[0]) && Character.isUpperCase(string[1])) allHigh = true;
@@ -35,8 +35,10 @@ public class Awend {
 
 	        if (lastStaffOthwharving) builder.append('\'');
         } else {
+        	if (firstStaffOthwharving) builder.append('\'');
         	builder.append(Character.toLowerCase(firstStaff));
         	builder.append("ay");
+        	if (lastStaffOthwharving) builder.append('\'');
         }
         
         if (firstStaffOthwharving) firstStaffOthwharving = false;
@@ -48,21 +50,23 @@ public class Awend {
 	private static char[] bareOthwharvings(char[] word) {
 		StringBuilder builder = new StringBuilder();
 		
-		char firstStaff = word[0], lastStaff = word[word.length - 1];
+		int wl = word.length;
+		
+		char firstStaff = word[0], lastStaff = word[wl - 1];
 		
 		if (firstStaff == '\'') {
 			firstStaffOthwharving = true;
 		
-			for (int t = 1; t < word.length; t++) builder.append(word[t]);
+			for (int t = 1; t < wl; t++) builder.append(word[t]);
 		} else if (lastStaff == '\'') {
 			lastStaffOthwharving = true;
 			
-			for (int t = 0; t < word.length - 1; t++) builder.append(word[t]);
+			for (int t = 0; t < wl - 1; t++) builder.append(word[t]);
 		} else if (firstStaff == '\'' && lastStaff == '\'') {
 			firstStaffOthwharving = true;
 			lastStaffOthwharving = true;
 			
-			for (int t = 1; t < word.length - 1; t++) builder.append(word[t]);
+			for (int t = 1; t <= wl - 1; t++) builder.append(word[t]);
 		} else return word;
 		
 		return builder.toString().toCharArray();
