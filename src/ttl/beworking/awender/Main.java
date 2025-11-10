@@ -31,14 +31,12 @@ public class Main {
 				else choosing = 0; shouldThroughwon = true;
 				
 				switch(choosing) {
-				case 1: Kirelists.inputString(reader.nextLine()); askAgain = true; break; //HANDED INPUT
-				case 2: System.out.println("NYI"); shouldThroughwon = true; break;
+				case 1: Kirelists.inputString(reader.nextLine()); askAgain = true; runs++; break; //HANDED INPUT
+				case 2: Kirelists.inputThread(reader.nextLine()); askAgain = true; runs++; break; //YIVEN THREAD IS INPUT
 				case 3: System.out.println("NYI"); shouldThroughwon = true; break;
 				case 4: shouldWork = false; break; //OUTGO
 				default: System.out.println("Unright input. Mint again."); shouldThroughwon = true;
 				}
-				
-				runs++;
 				
 				if (askAgain) {
 					System.out.println("Would you like to run the software again? [Y/N]");
