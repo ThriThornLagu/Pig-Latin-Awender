@@ -1,41 +1,66 @@
 package ttl.beworking.awender;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Main {
-
+	
+	public static boolean shouldWork = true, shouldThroughwon = true;
+	
 	public static void main(String[] args) {
 		
-        try (Scanner reader = new Scanner(System.in)) {
-
-            String input = reader.nextLine();
-
-            ArrayList<String> words = BreakThwear.toStringTrum(input);
-            
-            System.out.println(Arrays.toString(words.toArray())); //Unbug to find what the software umbhies to be a word.
-            
-            for (int t = 0; t < words.size(); t++) {
-            	
-            	String anwardWord = words.get(t);
-            	
-            	//For the /two/ cases of a one-staff word coming after a word end marker (see Staff.isWordEndMark for more knowledge),
-            	//and Awend.toPigLatin for rakes on why this is built like this.
-            	boolean isOneStaffWord = anwardWord.length() == 1 && !Staff.isMarker(anwardWord.charAt(0)) && !Character.isWhitespace(anwardWord.charAt(0));
-            	boolean isBoutingToWield = (!(t == 0) && Staff.isWordEndMark(words.get(t - 1).charAt(0)) && isOneStaffWord) || (t == 0 && isOneStaffWord);
+		int runs = 0;
+		
+		try (Scanner reader = new Scanner(System.in)) {
+			while (shouldWork) {
+	        	
+				shouldThroughwon = false;
+				boolean askAgain = false;
 				
-            	if (isBoutingToWield) {
-            		StringBuilder nw = new StringBuilder(anwardWord);
-            		nw.append("ay");
-            		words.set(t, nw.toString());
-            	} else words.set(t, Awend.toPigLatin(anwardWord));
-            }
+				System.out.println("How would you like to brook this software?");
+				System.out.println("1. INPUT A STRING");
+				System.out.println("2. AWEND GIVEN THREAD");
+				System.out.println("3. AWEND THREADFOLDER");
+				System.out.println("4. STOP");
+				
+				int choosing = 0;
+				
+				Pattern holdsRime = Pattern.compile("\\d");
+				String nextLine = reader.nextLine(); //Helps keep the following dern from getting many more new lines.
+				if (holdsRime.matcher(nextLine).matches()) choosing = Integer.parseInt(nextLine);
+				else choosing = 0; shouldThroughwon = true;
+				
+				switch(choosing) {
+				case 1: Kirelists.inputString(reader.nextLine()); askAgain = true; break; //HANDED INPUT
+				case 2: System.out.println("NYI"); shouldThroughwon = true; break;
+				case 3: System.out.println("NYI"); shouldThroughwon = true; break;
+				case 4: shouldWork = false; break; //OUTGO
+				default: System.out.println("Unright input. Mint again."); shouldThroughwon = true;
+				}
+				
+				runs++;
+				
+				if (askAgain) {
+					System.out.println("Would you like to run the software again? [Y/N]");
 
-            String output = BreakThwear.toLine(words);
+					String answer = reader.nextLine();
 
-            System.out.println(output);
-        }
-
+					if (answer.equalsIgnoreCase("yes") || answer.equalsIgnoreCase("y")) {
+						shouldThroughwon = true;
+					} else if (answer.equalsIgnoreCase("no") || answer.equalsIgnoreCase("n")) {
+						shouldWork = false;
+					} else {
+						System.out.println("Answer unright. Would you like to go again?");
+						askAgain = true;
+					}
+				}
+				
+				System.out.println("Times run: " + runs);
+				
+	        }
+			
+		}
+		
     }
+	
 }

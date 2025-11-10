@@ -1,0 +1,35 @@
+Fanding: In <LIFE> hy will say such things to you as you should deem right or wrong for yourself.
+Bidden Outcome: Niay <IFELAY> yhay illway aysay uchsay hingstay otay ouyay saay ouyay houldsay eemday ightray roay rongway orfay ourselfyay.
+
+Fanding: And he said, "Thou wilt understand in time. Of this am I sikker."
+Bidden Outcome: Ndaay ehay aidsay, "Houtay iltway nderstanduay niay imetay. Foay histay maay iay ikkersay."
+
+Fanding: "ABCDEF" GHIJKLM
+Bidden Outcome: "BCDEFAAY" HIJKLMGAY
+
+Fanding: A! B@ C# D$ E% F^ G& H* I( J) K- L= M[ N] O; P' Q\ R/ S. T, U V WXYz
+Bidden Outcome: aay! bay@ cay# day$ eay% fay^ gay& hay* iay( jay) kay- lay= may[ nay] oay; 'pay qay\ ray/ say. tay, uay vay XYZWAY
+
+Fanding: !@#$%^&*()_+{}:"|<>?-=[];'\,./
+Bidden Outcome: !@#$%^&*()_+{}:"|<>?-=[];'\,./ 
+
+Fanding: ABCDEFGHIJKLMNOPQRSTUVWXYZ
+Bidden Outcome: BCDEFGHIJKLMNOPQRSTUVWXYZAAY
+
+Fanding: don't
+Bidden Outcome: on'tday
+
+Fanding: ...I said don't go that a way.
+Bidden Outcome: ...Iay aidsay on'tday ogay hattay aay ayway.
+
+Fanding: I look to the stars when I sleep.
+Bidden Outcome: Iay ooklay otay hetay tarssay henway iay leepsay.
+
+Fanding: He wanted 'everything in the world at once.'
+Bidden Outcome: Ehay antedway 'verythingeay niay hetay orldway taay nceoay.'
+
+Fanding: 'a'
+Bidden Outcome: 'aay'
+
+Fanding: 'geronimo'
+Bidden Outcome: 'eronimogay'
