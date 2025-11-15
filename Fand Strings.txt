@@ -33,3 +33,12 @@ Bidden Outcome: 'aay'
 
 Fanding: 'geronimo'
 Bidden Outcome: 'eronimogay'
+
+Fanding: My email is email@emailHost.com.
+Bidden Outcome: Ymay maileay siay email@emailHost.com.
+
+Fanding: My email is email@emailHost.com.""/":{}}"|")(*&^$#@
+Bidden Outcome: Ymay maileay siay email@emailHost.com.""/":{}}"|")(*&^$#taay
+
+Fanding: He threw it right@him.
+Bidden Outcome: Ehay hrewtay tiay ightray aaytay imhay.

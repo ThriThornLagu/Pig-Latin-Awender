@@ -21,7 +21,7 @@ public class Awend {
         if (string.length >= 2) {
 	        if (Character.isUpperCase(string[0]) && Character.isUpperCase(string[1])) allHigh = true;
 	        else allHigh = false;
-        } else { //It's alright if something like 'iay' happens (but for the cases thate in Main)
+        } else { //It's alright if something like 'iay' happens (but for the cases thate in Kirelists.haftString())
         	allHigh = false;
         }
         
@@ -41,11 +41,54 @@ public class Awend {
         	if (lastStaffOthwharving) builder.append('\'');
         }
         
-        if (firstStaffOthwharving) firstStaffOthwharving = false;
-        if (lastStaffOthwharving) lastStaffOthwharving = false;
+        edsetStaffOthwharvingStirings();
         
         return builder.toString();
     }
+	
+	public static String unawendFromPigLatin(String word) {
+		
+		char firstStaff = word.charAt(0);
+
+		if ((Staff.isMarker(firstStaff) && firstStaff != '\'') || 
+        		Character.isWhitespace(word.charAt(0)) || 
+        		(firstStaff == '\'' && word.length() == 1)) return word;
+
+        StringBuilder builder = new StringBuilder();
+        
+        char[] string = word.toCharArray();
+        string = bareOthwharvings(string);
+        
+	    if (Character.isUpperCase(string[0]) && Character.isUpperCase(string[1])) allHigh = true;
+	    else allHigh = false;
+
+//        System.out.println("Unawending: " + word);
+//        System.out.println("With trum of staves: \n" + Arrays.toString(string));
+        
+	    if (firstStaffOthwharving) builder.append('\'');
+	    
+	    //Fares like the awend working, but in switched layout.
+	    if (string.length > 3) {
+		    for (int t = -1; t < string.length - 3; t++) {
+		    	if (t == -1) {
+		    		if (allHigh) builder.append(Character.toUpperCase(string[string.length - 3]));
+		    		else builder.append(string[string.length - 3]);
+		    	}
+		    	else {
+//		    		if (t == 0) System.out.println("Unawend is at t == 0 with staff: " + string[0]);
+		    		builder.append(string[t]);
+		    	}
+		    }
+	    } else {
+	    	builder.append(string[0]); //This is a one-staff word (see awendToPigLatin for how we know this).
+	    }
+
+	    if (lastStaffOthwharving) builder.append('\'');
+        
+	    edsetStaffOthwharvingStirings();
+	    
+        return builder.toString();
+	}
 	
 	private static char[] bareOthwharvings(char[] word) {
 		StringBuilder builder = new StringBuilder();
@@ -54,7 +97,12 @@ public class Awend {
 		
 		char firstStaff = word[0], lastStaff = word[wl - 1];
 		
-		if (firstStaff == '\'') {
+		if (firstStaff == '\'' && lastStaff == '\'') {
+			firstStaffOthwharving = true;
+			lastStaffOthwharving = true;
+			
+			for (int t = 1; t <= wl - 1; t++) builder.append(word[t]);
+		} else if (firstStaff == '\'') {
 			firstStaffOthwharving = true;
 		
 			for (int t = 1; t < wl; t++) builder.append(word[t]);
@@ -62,11 +110,6 @@ public class Awend {
 			lastStaffOthwharving = true;
 			
 			for (int t = 0; t < wl - 1; t++) builder.append(word[t]);
-		} else if (firstStaff == '\'' && lastStaff == '\'') {
-			firstStaffOthwharving = true;
-			lastStaffOthwharving = true;
-			
-			for (int t = 1; t <= wl - 1; t++) builder.append(word[t]);
 		} else return word;
 		
 		return builder.toString().toCharArray();
@@ -102,6 +145,11 @@ public class Awend {
         }
 		
 		return builder.toString().toCharArray();
+	}
+	
+	private static void edsetStaffOthwharvingStirings() {
+		firstStaffOthwharving = false;
+        lastStaffOthwharving = false;
 	}
 	
 }
