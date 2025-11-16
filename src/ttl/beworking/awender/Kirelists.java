@@ -5,6 +5,9 @@ import java.util.Arrays;
 
 public class Kirelists {
 
+	public static String[][] inputWithKeys;
+	private static int anwardRuns = 0;
+	
 	public static void inputString(String line) {
 		String output = haftString(line);
 		
@@ -15,6 +18,8 @@ public class Kirelists {
 		String thread = Thread.loadThreadAsString(threadPath);
 		String[] threadLines = Thread.BreakThreadToStringList(thread);
 		
+		inputWithKeys = new String[threadLines.length][2];
+		
 		ArrayList<String> linesHoldend = new ArrayList<>();
 		
 		for (String line : threadLines) {
@@ -24,12 +29,23 @@ public class Kirelists {
 		}
 		
 		Thread.writeThreadToNewStead(linesHoldend, threadPath);
+		inputWithKeys = null;
+		anwardRuns = 0;
 	}
 	
 	//Innings of above wises were stirred to here for dealt dern anyets.
 	private static String haftString(String input) {
 	
-		ArrayList<String> words = BreakThwear.toStringTrum(input);
+		String trueInput = input;
+		if (input.contains(Main.upsettend.keyForBreak)) {
+			inputWithKeys[anwardRuns] = input.split(Main.upsettend.keyForBreak);
+			trueInput = inputWithKeys[anwardRuns][1];
+			System.out.println("Line inholds key");
+		} else System.out.println("Line does not inhold key");
+		
+		anwardRuns++;
+
+		ArrayList<String> words = BreakThwear.toStringTrum(trueInput);
 
 		System.out.println(Arrays.toString(words.toArray())); //Unbug to find what the software umbhies to be a word.
 	        
@@ -47,7 +63,6 @@ public class Kirelists {
 				if (isEmail) {
 					continue;
 				} else {
-//					System.out.println("Token " + t + " has an @, ack no fayed email.");
 					words.set(t, "taay");
 					if (!Character.isWhitespace(words.get(t - 1).charAt(0))) {
 						words.add(t, " ");
@@ -58,7 +73,6 @@ public class Kirelists {
 					} else if (!Character.isWhitespace(words.get(t + 1).charAt(0))) {
 						words.add(t + 1, " ");
 					}
-//					System.out.println("Word at token " + t + " is " + words.get(t) + ".");
 					continue; //This is the only way I found to make this work as wanted.
 				}
 			}

@@ -24,7 +24,7 @@ public class Thread {
 			
 		} catch (IOException b) {
 			b.printStackTrace();
-			System.out.println("Evil thread: " + threadPath);
+			System.out.println("Unright thread: " + threadPath);
 		} 
 		
 		return builder.toString();
@@ -45,8 +45,9 @@ public class Thread {
 		
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(new File(newTLF)))){
 
-			for (String line : lines) {
-				writer.write(line + "\n");
+			for (int t = 0; t < lines.size(); t++) {
+				if (Kirelists.inputWithKeys[t][0] != null) writer.write(Kirelists.inputWithKeys[t][0] + Main.upsettend.keyForBreak + lines.get(t) + "\n");
+				else writer.write(lines.get(t) + "\n");
 			}
 
 			writer.close();

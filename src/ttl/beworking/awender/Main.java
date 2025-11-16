@@ -6,8 +6,11 @@ import java.util.regex.Pattern;
 public class Main {
 	
 	public static boolean shouldWork = false;
+	public static Setup upsettend = new Setup();
 	
 	public static void main(String[] args) {
+		
+		Main.upsettend.readSetupThread();
 		
 		int runs = 0;
 		
@@ -24,7 +27,7 @@ public class Main {
 				int choosing = 0;
 				
 				Pattern holdsRime = Pattern.compile("\\d");
-				String nextLine = reader.nextLine(); //Helps keep the following dern from getting many more new lines.
+				String nextLine = reader.nextLine(); //Helps keep the following dern from begetting many more new lines.
 				if (holdsRime.matcher(nextLine).matches()) choosing = Integer.parseInt(nextLine);
 				else choosing = 0; shouldWork = true;
 				

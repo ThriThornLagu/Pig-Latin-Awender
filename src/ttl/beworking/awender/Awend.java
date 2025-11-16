@@ -62,9 +62,6 @@ public class Awend {
 	    if (Character.isUpperCase(string[0]) && Character.isUpperCase(string[1])) allHigh = true;
 	    else allHigh = false;
 
-//        System.out.println("Unawending: " + word);
-//        System.out.println("With trum of staves: \n" + Arrays.toString(string));
-        
 	    if (firstStaffOthwharving) builder.append('\'');
 	    
 	    //Fares like the awend working, but in switched layout.
@@ -75,7 +72,6 @@ public class Awend {
 		    		else builder.append(string[string.length - 3]);
 		    	}
 		    	else {
-//		    		if (t == 0) System.out.println("Unawend is at t == 0 with staff: " + string[0]);
 		    		builder.append(string[t]);
 		    	}
 		    }
